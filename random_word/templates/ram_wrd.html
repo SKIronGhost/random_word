@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container-fluid p-5 mx-auto col-6">
+        <h5 class="text-center">Random Word (attempt #{{ attempt }})</h5>
+        <form class="form bg-secondary p-2" action='/generate_word' method='post'>
+            {% csrf_token %}
+            <h2 class="bg-primary text-center p-3 display-4">{{word}}</h2>
+            <button class="btn btn-warning" type='submit'>Generate</button>
+        </form>
+        <button class="btn btn-danger m-2" onclick="location.href='/random_word'">Reset</button>
+    </div>
+
+
+
+    {% bootstrap_javascript jquery='full' %}
+
+</body>
+</html>
